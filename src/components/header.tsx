@@ -25,14 +25,9 @@ export default function Header() {
           <div className="items-center">
             <Link
               to="/"
-              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity p-2 -m-2"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
-                <ResponsiveLogo maxWidth="48px z-999" />
-              </div>
-              <span className="text-xl font-bold text-gray-900 hidden sm:block">
-                Atsumarii
-              </span>
+              <ResponsiveLogo size="lg" maxWidth="120px" />
             </Link>
           </div>
 
@@ -58,12 +53,18 @@ export default function Header() {
                     </nav> */}
 
           <div className="flex items-center space-x-4">
-            <button className="text-gray-700 hover:text-gray-900 font-medium transition-colors cursor-pointer">
+            <Link
+              to="/login"
+              className="text-gray-700 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+            >
               Log in
-            </button>
-            <button className="bg-primary text-white px-4 py-2 rounded-full font-medium transition-colors cursor-pointer hover:shadow-xl">
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-primary text-white px-4 py-2 rounded-full font-medium transition-colors cursor-pointer hover:shadow-xl"
+            >
               Sign up
-            </button>
+            </Link>
           </div>
         </div>
       </div>
