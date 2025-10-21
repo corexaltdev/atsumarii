@@ -15,6 +15,8 @@
     "deploy:s3": "pnpm build && aws s3 sync dist s3://BUCKET_NAME --delete --exclude index.html --cache-control max-age=31536000,public && aws s3 cp dist/index.html s3://YOUR_BUCKET_NAME/index.html --cache-control no-cache"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-query": "^5.90.2",
     "class-variance-authority": "^0.7.1",
@@ -23,8 +25,10 @@
     "lucide-react": "^0.545.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.65.0",
     "react-router": "^7.9.4",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
