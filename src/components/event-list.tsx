@@ -139,7 +139,7 @@ export default function EventList() {
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Events</h2>
           <Link
-            to="/events"
+            to="/discover?tab=events"
             className="text-red-500 hover:text-red-600 font-medium transition-colors"
           >
             See all events

@@ -87,7 +87,7 @@ export default function GroupList() {
             Groups you might like
           </h2>
           <Link
-            to="/groups"
+            to="/discover?tab=groups"
             className="text-red-500 hover:text-red-600 font-medium transition-colors"
           >
             See all groups
