@@ -18,7 +18,7 @@ export default function TagTabs({
       <button
         onClick={() => onTagSelect(null)}
         className={cn(
-          'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+          'cursor-pointer px-4 py-2 rounded-full text-sm font-medium transition-colors',
           selectedTag === null
             ? 'bg-primary text-primary-foreground'
             : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
@@ -31,7 +31,7 @@ export default function TagTabs({
           key={tag}
           onClick={() => onTagSelect(tag)}
           className={cn(
-            'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+            'cursor-pointer px-4 py-2 rounded-full text-sm font-medium transition-colors',
             selectedTag === tag
               ? 'bg-primary text-primary-foreground'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
