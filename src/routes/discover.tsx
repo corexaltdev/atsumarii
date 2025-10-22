@@ -7,28 +7,7 @@ import TagTabs from '@/components/tag-tabs';
 import { Pagination } from '@/components/ui/pagination';
 import DiscoverEventList from '@/components/discover-event-list';
 import DiscoverGroupList from '@/components/discover-group-list';
-
-const EVENT_TAGS = [
-  'All',
-  'Networking',
-  'Technology',
-  'Health & Wellness',
-  'Photography',
-  'Food & Drink',
-  'Education',
-  'Art & Culture',
-];
-
-const GROUP_TAGS = [
-  'All',
-  'Technology',
-  'Food & Drink',
-  'Education',
-  'Photography',
-  'Health & Wellness',
-  'Art & Culture',
-  'Sports & Fitness',
-];
+import { EVENT_TAGS, GROUP_TAGS } from '@/data/mockData';
 
 export default function DiscoverPage() {
   const [searchParams] = useSearchParams();

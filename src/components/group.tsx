@@ -6,8 +6,8 @@ type GroupProps = {
   description: string;
   members: number;
   location: string;
-  image: string;
-  category: string;
+  imgUrl: string;
+  tag: string;
   events: number;
 };
 
@@ -16,8 +16,8 @@ const Group = ({
   description,
   members,
   location,
-  image,
-  category,
+  imgUrl,
+  tag,
   events,
 }: GroupProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -52,13 +52,13 @@ const Group = ({
       {/* Group Image */}
       <div className="relative h-48 p-2">
         <img
-          src={image}
+          src={imgUrl}
           alt={name}
           className="w-full h-full rounded-3xl object-cover hover:opacity-80"
         />
         <div className="absolute top-5 left-5">
           <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-            {category}
+            {tag}
           </span>
         </div>
       </div>

@@ -2,84 +2,7 @@ import { Link } from 'react-router';
 import { useState, useEffect } from 'react';
 import Event from '@/components/event';
 import EventSkeletonAdvanced from '@/components/event-skeleton-advanced';
-
-interface Event {
-  id: string;
-  title: string;
-  hostName: string;
-  startDate: string;
-  time: string;
-  location: string;
-  attendees: number;
-  imgUrl: string;
-  tag: string;
-}
-
-const mockEvents: Event[] = [
-  {
-    id: '1',
-    title: 'Coffee & Networking in Downtown',
-    hostName: 'Tech Professionals NYC',
-    startDate: 'Dec 15',
-    time: '9:00 AM',
-    location: 'Blue Bottle Coffee, Manhattan',
-    attendees: 23,
-    imgUrl:
-      'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=200&fit=crop',
-    tag: 'Networking',
-  },
-  {
-    id: '2',
-    title: 'Morning Yoga in Central Park',
-    hostName: 'NYC Wellness Warriors',
-    startDate: 'Dec 16',
-    time: '8:00 AM',
-    location: 'Central Park, Sheep Meadow',
-    attendees: 45,
-    imgUrl:
-      'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=200&fit=crop',
-    tag: 'Health & Wellness',
-  },
-  {
-    id: '3',
-    title: 'JavaScript Study Group',
-    hostName: 'NYC Developers',
-    startDate: 'Dec 17',
-    time: '7:00 PM',
-    location: 'WeWork, Brooklyn',
-    attendees: 18,
-    imgUrl:
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop',
-    tag: 'Technology',
-  },
-  {
-    id: '4',
-    title: 'Photography Walk in SoHo',
-    hostName: 'NYC Photography Club',
-    startDate: 'Dec 18',
-    time: '2:00 PM',
-    location: 'SoHo, Manhattan',
-    attendees: 32,
-    imgUrl:
-      'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=200&fit=crop',
-    tag: 'Photography',
-  },
-  // Add more events for pagination
-  ...Array.from({ length: 16 }, (_, i) => ({
-    id: `${i + 5}`,
-    title: `Event ${i + 5}`,
-    hostName: 'Host Name',
-    startDate: `Dec ${19 + i}`,
-    time: '2:00 PM',
-    location: 'New York, NY',
-    attendees: Math.floor(Math.random() * 100) + 10,
-    imgUrl:
-      'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=200&fit=crop',
-    tag: ['Networking', 'Technology', 'Health & Wellness', 'Photography'][
-      i % 4
-    ],
-  })),
-];
+import { mockEvents, type EventData } from '@/data/mockData';
 
 interface DiscoverEventListProps {
   selectedTag?: string | null;
@@ -91,7 +14,7 @@ export default function DiscoverEventList({
   currentPage = 1,
 }: DiscoverEventListProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<EventData[]>([]);
 
   useEffect(() => {
     const loadEvents = async () => {
