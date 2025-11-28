@@ -32,7 +32,7 @@ export default function DiscoverEventList({
         );
       }
 
-      // Simulate pagination (12 items per page)
+      // Simulate pagination (12 items per page - 3 rows of 4)
       const itemsPerPage = 12;
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
@@ -47,8 +47,8 @@ export default function DiscoverEventList({
 
   if (isLoading) {
     return (
-      <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8">
-        {Array.from({ length: 8 }).map((_, index) => (
+      <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
+        {Array.from({ length: 12 }).map((_, index) => (
           <EventSkeletonAdvanced key={`skeleton-${index}`} />
         ))}
       </div>
@@ -66,7 +66,7 @@ export default function DiscoverEventList({
   }
 
   return (
-    <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8">
+    <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
       {events.map((event) => (
         <Link key={event.id} to={`/events/${event.id}`} className="block">
           <Event {...event} />

@@ -12,7 +12,8 @@ export default function GroupList() {
     const loadGroups = async () => {
       setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      setGroups(mockGroups);
+      // Limit to 4 groups (1 row on homepage)
+      setGroups(mockGroups.slice(0, 4));
       setIsLoading(false);
     };
     loadGroups();
@@ -33,7 +34,7 @@ export default function GroupList() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-4 gap-6 p-8">
+        <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
           {isLoading
             ? Array.from({ length: 4 }).map((_, index) => (
                 <GroupSkeletonAdvanced key={`group-skeleton-${index}`} />

@@ -16,7 +16,8 @@ export default function EventList() {
       // Simulate network delay
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      setEvents(mockEvents);
+      // Limit to 8 events (2 rows on homepage)
+      setEvents(mockEvents.slice(0, 8));
       setIsLoading(false);
     };
 
@@ -36,9 +37,9 @@ export default function EventList() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8">
+        <div className="bg-white rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
           {isLoading
-            ? // Show skeleton loading state
+            ? // Show skeleton loading state (8 items for 2 rows)
               Array.from({ length: 8 }).map((_, index) => (
                 <EventSkeletonAdvanced key={`skeleton-${index}`} />
               ))
